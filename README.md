@@ -50,6 +50,6 @@ In the following image you can see the embedded code that executes the payload i
 </br>
 
 ### Additional Information:
-[http://www.cmsmadesimple.org/](https://www.totalcms.co/)
+https://www.totalcms.co/
 
 https://owasp.org/Top10/es/A03_2021-Injection/
