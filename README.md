@@ -1,35 +1,48 @@
-# CMSmadesimple Stored XSS v2.2.18
+# TotalCMS demo Stored XSS
 
 ## Author: (Sergio)
 
-**Description:** Cross Site Scripting vulnerability in CMSmadesimple v.2.2.18 allows a local attacker to execute arbitrary code via a crafted script to the Global Meatadata in the Settings- Global Settings Menu.
+**Description:** Cross Site Scripting vulnerability in TotalCMS demo allows a local attacker to execute arbitrary code via a crafted script to the admin Post settings.
 
-**Attack Vectors:** Scripting A vulnerability in the sanitization of the entry in the Global Meatadata of "Settings- Global Settings Menu" allows injecting JavaScript code that will be executed when the user accesses the web page.
+**Attack Vectors:** Scripting A vulnerability in the sanitization of the entry in the admin Post settings. allows injecting JavaScript code that will be executed when the user accesses the web page.
 
 ---
 
 ### POC:
 
 
-When logging into the panel, we will go to the "Settings- Global Settings Menu." section off General Menu.
+When logging into the panel, we will go to the "/admin/post- Settings" section off General Menu.
 
-![XSS Global Metadata](https://github.com/sromanhu/CMSmadesimple-Stored-XSS---Global-Settings/assets/87250597/bc00f0fd-5d58-4255-9050-4a6743d67dd1)
-
-
+![image](https://github.com/sromanhu/TotalCMS-Stored-XSS---Post/assets/87250597/729e7e4a-1ebe-4174-9719-e5615f028c55)
 
 
-We edit that Global Settings Menu that we have created and see that we can inject arbitrary Javascript code in the Global Meatadata field.
+
+
+We edit that Post Settings and see that we can inject arbitrary Javascript code in the permalink menu.
 
 
 ### XSS Payload:
 
 ```js
-<img src=1 onerror=alert("1")
+<img src=1 onerror=alert("XSS_TotalCMS")
 ```
 
 
+
+We check the link to the blog post:
+![image](https://github.com/sromanhu/TotalCMS-Stored-XSS---Post/assets/87250597/dec3a06c-9cc0-4426-8947-a01be863ecdd)
+
+
+
+We copy the Post Link and access the URL:
+![image](https://github.com/sromanhu/TotalCMS-Stored-XSS---Post/assets/87250597/72dd8586-3292-46f9-8854-510b70f48c8d)
+
+
+
+
 In the following image you can see the embedded code that executes the payload in the main web.
-![XSS Global Metadata resultado](https://github.com/sromanhu/CMSmadesimple-Stored-XSS---Global-Settings/assets/87250597/bb3f7f02-3b25-4151-84b0-93eb78a21635)
+![image](https://github.com/sromanhu/TotalCMS-Stored-XSS---Post/assets/87250597/6adc8581-ffc2-4c0d-a4ea-450d1d278547)
+
 
 
 
@@ -37,6 +50,6 @@ In the following image you can see the embedded code that executes the payload i
 </br>
 
 ### Additional Information:
-http://www.cmsmadesimple.org/
+[http://www.cmsmadesimple.org/](https://www.totalcms.co/)
 
 https://owasp.org/Top10/es/A03_2021-Injection/
